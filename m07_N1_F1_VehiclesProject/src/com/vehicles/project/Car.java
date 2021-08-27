@@ -32,7 +32,5 @@ public class Car extends Vehicle {
 	public String toString() {
 		return "Car [plate=" + plate + ", brand=" + brand + ", color=" + color + ", wheels=" + wheels + "]";
 	}
-	
-	
 
 }

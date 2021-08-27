@@ -55,11 +55,11 @@ public class VehiclesControler {
 	 */
 	public void createCotxeByUser() {
 		Scanner reader = new Scanner(System.in);
-		//introduim els valors a hardcode per fer proves
-		String plate="1111AAA"; //null;
-		String brand="Renault";
-		String color="Blau";
-		
+		// introduim els valors a hardcode per fer proves
+		String plate = "1111AAA"; // null;
+		String brand = "Renault";
+		String color = "Blau";
+
 		System.out.println("Introdueix les dades de un cotxe");
 
 		System.out.println("Introdueix #1 la matrícula = ");
@@ -70,9 +70,6 @@ public class VehiclesControler {
 
 		System.out.println("Introdueix #3 el Color del cotxe = ");
 		color = reader.next();
-		
-		
-		
 
 		try {
 			createCotxe(plate, brand, color);
@@ -86,18 +83,16 @@ public class VehiclesControler {
 
 	}
 
-	
 	public void addRodes(Car cotxe) {
 		Scanner reader = new Scanner(System.in);
-	
-		//introduim els valors a hardcode per fer proves
+
+		// introduim els valors a hardcode per fer proves
 		String frontWheelBrand = "Dunlop";
 		String frontWheelDiameter = "22";
-		
+
 		String backWheelBrand = "Pirelli";
 		String backWheelDiameter = "23";
 
-		
 		System.out.println("Introdueix les dades de les rodes del cotxe");
 
 		System.out.println("   Introdueix la marca de les rodes davanteres = ");
@@ -106,40 +101,28 @@ public class VehiclesControler {
 		System.out.println("   Introdueix la mida de les rodes davanteres =");
 		frontWheelDiameter = reader.next();
 
-		
 		System.out.println("   Introdueix la marca de les rodes del darrera = ");
 		backWheelBrand = reader.next();
 
 		System.out.println("   Introdueix la mida de les rodes del darrera =");
 		backWheelDiameter = reader.next();
 
-		
-		
-		
-
 		List<Wheel> frontWheels = new ArrayList<Wheel>();
 		frontWheels.add(new Wheel(frontWheelBrand, Double.parseDouble(frontWheelDiameter)));
 		frontWheels.add(new Wheel(frontWheelBrand, Double.parseDouble(frontWheelDiameter)));
-		
-		
-		
+
 		List<Wheel> backWheels = new ArrayList<Wheel>();
 		backWheels.add(new Wheel(backWheelBrand, Double.parseDouble(backWheelDiameter)));
 		backWheels.add(new Wheel(backWheelBrand, Double.parseDouble(backWheelDiameter)));
-		
-		
-		
-		
-		
+
 		try {
 			cotxe.addWheels(frontWheels, backWheels);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		reader.close();
-		
+
 	}
 }
