@@ -7,7 +7,7 @@ import com.vehicles.application.VehiclesControler;
  * Clase main per on començarà el projecte
  * 
  * @author Carles Falgueras
- * @version M7.N1.F2.20210729
+ * @version M7.N1.F3.20210815
  *
  *          Demanar a l’usuari la matrícula del cotxe, la marca i el seu color.
  *          Crear el cotxe amb les dades anteriors. Afegir-li dues rodes
