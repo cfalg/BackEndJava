@@ -56,6 +56,7 @@ public class Main {
 			break;
 		case "2": // moto
 			controller.createBikeByUser();
+			break;
 		case "3": // camio
 			controller.createCamioByUser();
 			break;
