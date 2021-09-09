@@ -1,7 +1,7 @@
 package com.dominivideos.view;
 
-import com.dominivideos.application.UsuarisControler;
-import com.dominivideos.application.VideosControler;
+import com.dominivideos.controller.UsuarisControler;
+import com.dominivideos.controller.VideosControler;
 
 /**
  * Clase main per on començarà el projecte
@@ -36,6 +36,8 @@ public class Main {
 
 		// imprimir els videos ((1 en aquest cas)
 		System.out.println("Videos " + videoControler.getAllVideos());
+		// imprimim de nou tots els usuaris
+		System.out.println("Usuaris " + userControler.getAllUsuaris());
 	}
 
 }

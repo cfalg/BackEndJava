@@ -2,16 +2,7 @@ package com.dominivideos.view;
 
 import java.util.ArrayList;
 
-/**
- * Clase VideosView: Clase Vista pels videos
- * 
- * @author Carles Falgueras
- * @version M8.N1.20210901
- * 
- */
-
-import com.dominivideos.utilities.Utilities;
-
+import javax.swing.JOptionPane;
 
 /**
  * Clase VideosView: La Vista dels Videos
@@ -22,17 +13,17 @@ import com.dominivideos.utilities.Utilities;
  *
  */
 
-
 public class VideosView {
 
 	Utilities u = new Utilities();
 
 	public String getVideoTitol() {
 		String field = "Titol";
-		String message = "Introdueix Titul del Video: " + "\n";
+		String message = "Introdueix Titol del Video: " + "\n";
 		String resultat = "";
 		try {
 			resultat = u.getUserInput(message);
+
 			u.checkField(field, resultat);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -54,17 +45,18 @@ public class VideosView {
 	}
 
 	public ArrayList<String> addTags() {
-		ArrayList<String> tags = new ArrayList<>();
+		ArrayList<String> tags = new ArrayList<String>();
 
-		String message = "Vols introduir un altre Tag?  ( 'N' per sortir / un altre tecle per continuar) : " + "\n";
-		String resultat = "";
+		String message = "Vols introduir un altre Tag?  " + "\n";
+		int resultat = 0;
 
 		do {
 			tags.add(addOneTag());
 
-			resultat = u.getUserInput(message);
+			resultat = JOptionPane.showConfirmDialog(null, message, "Add Tags", JOptionPane.YES_NO_OPTION);
+			//Yes=0 y NO=1
 
-		} while (!resultat.toUpperCase().equals("N"));
+		} while ((JOptionPane.YES_OPTION) == resultat);
 
 		return tags;
 	}
@@ -87,6 +79,26 @@ public class VideosView {
 			}
 
 		} while (!isOk);
+		return resultat;
+	}
+
+	public int getUsuariVideoId() {
+		int resultat = 0;
+		String message = "Introdueix el ID del Usuari del Video: " + "\n";
+		boolean isOk = false;
+
+		do {
+			String preResultat = u.getUserInput(message);
+
+			if (u.isNumeric(preResultat)) {
+				resultat = Integer.parseInt(preResultat);
+				isOk = true;
+			} else {
+				message = "Error. El valor introduit ha de ser numéric \n" + message;
+			}
+
+		} while (!isOk);
+
 		return resultat;
 	}
 

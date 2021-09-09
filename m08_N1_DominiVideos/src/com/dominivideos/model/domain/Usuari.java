@@ -1,4 +1,4 @@
-package com.dominivideos.project;
+package com.dominivideos.model.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +14,8 @@ import java.util.List;
 
 public class Usuari {
 
+	private static int ID_CONTADOR = 0;
+	protected int id;
 	private String nom;
 	private String cognom;
 	private String password;
@@ -26,6 +28,8 @@ public class Usuari {
 		this.cognom = cognom;
 		this.password = password;
 		this.dataRegistre = new Date();
+		ID_CONTADOR++;
+        this.id = ID_CONTADOR;
 	}
 
 	public List<Video> getVideos() {
@@ -36,12 +40,17 @@ public class Usuari {
 		this.videos = videos;
 	}
 
+	public void addVideo(Video video) {
+		this.videos.add(video);
+	}
+	
 	@Override
 	public String toString() {
-		return "Usuari [nom=" + nom + ", cognom=" + cognom + ", password=" + password + ", dataRegistre=" + dataRegistre.toString()
+		return "Usuari [id="+ String.valueOf(id) +" nom= " + nom + ", cognom=" + cognom + ", password=" + password + ", dataRegistre=" + dataRegistre.toString()
 				+ ", videos=" + videos + "]";
 	}
 
+	
 	
 	
 	

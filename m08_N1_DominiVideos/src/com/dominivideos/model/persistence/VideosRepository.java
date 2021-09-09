@@ -1,9 +1,9 @@
-package com.dominivideos.persistence;
+package com.dominivideos.model.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dominivideos.project.Video;
+import com.dominivideos.model.domain.Video;
 
 /**
  * Repository on guardar els usuaris
@@ -14,14 +14,14 @@ import com.dominivideos.project.Video;
 
 public class VideosRepository {
 
-	private static List<Video> videos = new ArrayList<>();
+	private static List<Video> videos = new ArrayList<Video>();
 
 	public VideosRepository() {
 
 	}
 
 	public List<Video> getAllVideos() {
-		return new ArrayList<>(videos);
+		return new ArrayList<Video>(videos);
 	}
 
 	public void addVideo(Video video) throws Exception {

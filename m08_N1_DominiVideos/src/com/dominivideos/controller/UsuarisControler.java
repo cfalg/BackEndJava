@@ -1,7 +1,7 @@
-package com.dominivideos.application;
+package com.dominivideos.controller;
 
-import com.dominivideos.persistence.UsuarisRepository;
-import com.dominivideos.project.Usuari;
+import com.dominivideos.model.domain.Usuari;
+import com.dominivideos.model.persistence.UsuarisRepository;
 
 
 /**

@@ -1,6 +1,8 @@
-package com.dominivideos.utilities;
+package com.dominivideos.view;
 
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 /**
  * Clase Utilities: Clase amb utilitats varias
@@ -25,7 +27,7 @@ public class Utilities {
 	 *                      Missatge a mostrar al usuari
 	 * @return Valor que ha introduït el usuari
 	 */
-	public String getUserInput(String messageToUser) {
+	public String getUserInput_Scanner(String messageToUser) {
 		//Scanner reader = null;
 
 		System.out.print(messageToUser);
@@ -56,6 +58,28 @@ public class Utilities {
 		if (input.isEmpty()) {
 			throw new RuntimeException("El camp " + field + ". No pot esta buit.");
 		}
+	}
+	
+
+	/**
+	 * Mètode per mostrar missatge al usuari i obtenir la resposta d'aquest
+	 * 
+	 * @param messageToUser
+	 *                      Missatge a mostrar al usuari
+	 * @return Valor que ha introduït el usuari
+	 */
+	public String getUserInput(String messageToUser) {
+		//Scanner reader = null;
+
+//		System.out.print(messageToUser);
+//		Scanner reader = new Scanner(System.in);
+//
+//		String s = reader.nextLine();
+//		// reader.close();
+		
+		String userInput = JOptionPane.showInputDialog(messageToUser);
+		
+		return userInput;
 	}
 
 }

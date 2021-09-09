@@ -1,4 +1,4 @@
-package com.dominivideos.project; //o Model
+package com.dominivideos.model.domain; //o Model
 
 import java.util.ArrayList;
 

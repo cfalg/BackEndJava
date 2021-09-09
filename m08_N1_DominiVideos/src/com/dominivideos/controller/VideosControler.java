@@ -1,9 +1,11 @@
-package com.dominivideos.application;
+package com.dominivideos.controller;
 
 import java.util.ArrayList;
 
-import com.dominivideos.persistence.VideosRepository;
-import com.dominivideos.project.Video;
+import com.dominivideos.model.domain.Usuari;
+import com.dominivideos.model.domain.Video;
+import com.dominivideos.model.persistence.UsuarisRepository;
+import com.dominivideos.model.persistence.VideosRepository;
 import com.dominivideos.view.VideosView;
 
 /**
@@ -64,16 +66,33 @@ public class VideosControler {
 	 * Mètode per afegir un Video per part del Usuari
 	 */
 	public void createVideoUser() {
-		String url = videosView.getVideoURL();
-		String titol = videosView.getVideoTitol();
-		ArrayList<String> tags = videosView.addTags();
+		
 
+		Usuari user;
 		try {
-			createVideo(url, titol, tags);
+			//obtenir el id usuari
+			int id= videosView.getUsuariVideoId();
+			UsuarisRepository ur = new UsuarisRepository();
+			
+			//obtenir objecte usuari desde un metode dela Classe repository
+			user = ur.getUsuari(id);
+			
+			
+			String url = videosView.getVideoURL();
+			String titol = videosView.getVideoTitol();
+			ArrayList<String> tags = videosView.addTags();
+
+			Video video = new Video(url, titol, tags);
+			user.addVideo(video);
+
+			
 		} catch (Exception e) {
-			e.printStackTrace();
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
+		
+		
+		
+
 	}
 
 }
