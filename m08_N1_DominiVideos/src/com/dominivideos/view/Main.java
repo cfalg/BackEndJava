@@ -38,6 +38,8 @@ public class Main {
 		System.out.println("Videos " + videoControler.getAllVideos());
 		// imprimim de nou tots els usuaris
 		System.out.println("Usuaris " + userControler.getAllUsuaris());
+		
+		System.out.println("Fi del programa");
 	}
 
 }
