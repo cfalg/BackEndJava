@@ -24,6 +24,9 @@ public class Video {
 	private long duradaVideo;
 	private long tempsActualReproduccio;
 
+	private Runnable r;
+	private Thread t;
+
 	// creem un constructor private i buit per inicializar valors del video
 	private Video() {
 		this.dataPujada = new Date();
@@ -85,9 +88,9 @@ public class Video {
 
 		// System.out.println(diferencia);
 
-		if (diferencia < (60 * 1000)) {
+		if (diferencia < (6 * 1000)) {
 			this.estatVideo = EstatVideo.UPLOADING;
-		} else if (diferencia < (60 * 1000 * 3)) {
+		} else if (diferencia < (6 * 1000 * 3)) {
 			this.estatVideo = EstatVideo.VERIFYING;
 		} else {
 			this.estatVideo = EstatVideo.PUBLIC;
@@ -131,40 +134,22 @@ public class Video {
 
 	public void play() {
 
-		if (t==null || !t.isAlive()) {
+		//`per no obrir nous Threads
+		if (t == null || !t.isAlive()) {
 			r = new VideoPlay(this);
 			t = new Thread(r);
 			t.start();
-			this.setStatusVideo(StatusVideo.REPRODUINT_SE);
 		}
-		
+		this.setStatusVideo(StatusVideo.REPRODUINT_SE);
 	}
 
 	public void stop() {
-		if (t.isAlive()) {
-			t.interrupt();
-			this.setStatusVideo(StatusVideo.PARAT);
-		}
+		this.setStatusVideo(StatusVideo.PARAT);
+
 	}
 
 	public void pause() {
-		if (t.isAlive()) {
-			try {
-				t.wait();
-				this.setStatusVideo(StatusVideo.PAUSAT);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			try {
-				t.join();
-				this.setStatusVideo(StatusVideo.REPRODUINT_SE);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		this.setStatusVideo(StatusVideo.PAUSAT);
 	}
 
 	@Override
@@ -174,7 +159,4 @@ public class Video {
 				+ duradaVideo + ", tempsActualReproduccio=" + tempsActualReproduccio + "]";
 	}
 
-	private Runnable r;
-	private Thread t;
-	
 }

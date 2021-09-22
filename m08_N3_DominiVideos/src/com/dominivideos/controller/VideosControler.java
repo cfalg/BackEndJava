@@ -93,10 +93,13 @@ public class VideosControler {
 
 	private void playVideoUser(Video v) {
 		boolean continuar = true;
-		int seleccio = videosView.playVideo();
+		int seleccio = 0;
 
 		while (continuar) {
 
+			seleccio = videosView.playVideo();
+			
+			
 			switch (seleccio) {
 			case 0: // Play
 			{
