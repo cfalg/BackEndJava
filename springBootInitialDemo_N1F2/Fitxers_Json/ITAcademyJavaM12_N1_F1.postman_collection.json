@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "49ec69c6-3cde-4e0f-a3b7-67bda37965e8",
+		"name": "ITAcademyJavaM12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "N1_F1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

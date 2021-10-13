@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "35e4f358-7a33-41b9-b631-c8e45c1fd831",
+		"name": "m12Nivell1F3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "local get 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "IP",
+						"value": "{{IP}}",
+						"type": "text"
+					},
+					{
+						"key": "port",
+						"value": "{{port}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{IP}}:{{port}}/v1/test_N1F2",
+					"protocol": "http",
+					"host": [
+						"{{IP}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"test_N1F2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "local get 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "IP",
+						"value": "{{IP}}",
+						"type": "text"
+					},
+					{
+						"key": "port",
+						"value": "{{port}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{IP}}:{{port}}/v1/test_N1F2_2/user=userN1F3_1",
+					"protocol": "http",
+					"host": [
+						"{{IP}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"test_N1F2_2",
+						"user=userN1F3_1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "desenvolupament get 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "IP",
+						"value": "{{IP}}",
+						"type": "text"
+					},
+					{
+						"key": "port",
+						"value": "{{port}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{IP}}:{{port}}/v1/test_N1F2",
+					"protocol": "http",
+					"host": [
+						"{{IP}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"test_N1F2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
