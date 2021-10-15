@@ -24,15 +24,17 @@ public class Main {
 		// creem un usuari Auto
 		userControler.createUsuariAuto();
 		// imprimim els usuaris que tenem (1 en aquest cas)
-		System.out.println("Usuaris " + userControler.getAllUsuaris());
+		System.out.println("Usuaris Automàtic " + userControler.getAllUsuaris());
 
 		// creem un video Auto
 		videoControler.createVideoAuto();
 		// imprimir els videos ((1 en aquest cas)
-		System.out.println("Videos " + videoControler.getAllVideos());
+		System.out.println("Videos Automàtic " + videoControler.getAllVideos());
 
 		// creem un video Auto
 		videoControler.createVideoUser();
+		
+		System.out.println("\n\n" + "----- imprimim tots els Videos i tots els usuaris -----");
 		
 		// Donem la opció de reproduir el video
 		//videoControler.playVideoUser();
