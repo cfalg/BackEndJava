@@ -28,8 +28,9 @@ public class Usuari {
 		this.cognom = cognom;
 		this.password = password;
 		this.dataRegistre = new Date();
-		ID_CONTADOR++;
+		
         this.id = ID_CONTADOR;
+        ID_CONTADOR++;
 	}
 
 	public List<Video> getVideos() {
