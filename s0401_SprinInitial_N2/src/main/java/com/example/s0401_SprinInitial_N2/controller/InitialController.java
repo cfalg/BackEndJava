@@ -12,7 +12,7 @@ import com.example.s0401_SprinInitial_N2.dto.UserResponseDto;
 import com.example.s0401_SprinInitial_N2.service.IUserService;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/")
 public class InitialController {
 
     private final IUserService userService;
@@ -22,38 +22,17 @@ public class InitialController {
         this.userService = userService;
     }
 
-    @GetMapping("/test")
+    @GetMapping("/")
     public String helloGradle() {
-        return "Hello Gradle Carles!";
+        return "Hello World!" + " ---> Tasca S4.01 Spring Initial - Nivell 2 - Part 1";
     }
 
-    
-    @GetMapping("/test_N2")
-    public String helloGradle_N2() {
-        return "Hello Gradle Carles Nivell 2!";
-    }
-
-    
-    @GetMapping("/test_N2/{user}")
+    @GetMapping("/{user}")
     public String helloGradle_N1F2_2( @PathVariable(name="user") String user) {
-        return "Hello Gradle "+ user + " Nivell 2";
+        return "Hello, "+ user + " ---> Tasca S4.01 Spring Initial - Nivell 2 - Part 2";
     }
     
-    //@PutMapping(value ="", consumes = {"application/json"})
-    @GetMapping("/user/{uuid}")
-    public ResponseEntity<UserResponseDto> updatePrescription(
-            @PathVariable(name="uuid") String user) throws Exception {
-
-
-        UserResponseDto userResponseDto = userService.getUser("pp");
-
-        System.out.println(userResponseDto.getName());
-        System.out.println(userResponseDto.getSurname());
-        System.out.println(userResponseDto.getGender());
-
-        return new ResponseEntity<>(userResponseDto, HttpStatus.OK);
-
-    }
-
-
+    
+   
 }
+
