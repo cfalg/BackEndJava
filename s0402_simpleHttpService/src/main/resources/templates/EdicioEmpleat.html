@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<th:block th:include="Fragments/head :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<div th:insert="Fragments/BodyHeader :: div"></div>
+
+
+		<h3>Editar</h3>
+		<form th:object="${EmpleatsForm}" method="post" th:action="@{/GuardarEmpleat}">
+
+			<!-- <input type="hidden" th:field="*{id}"> --> 
+
+			<div class="form-group">
+
+				 <label class="cloud-label">id</label>
+				<input type="text"	th:field="*{id}" readonly> <br>  
+				
+			
+			
+				<label class="cloud-label">Nom</label> 
+				<input type="text"	th:field="*{nom}"> <br>
+			
+				 
+				<label class="cloud-label">feina</label> 
+				<select name="feina" th:field="*{feina}">
+				<option th:each="feina:${T(com.itacademy.s0402_simpleHttpService.Model.Entities.EnumFeines).values()}" 
+					th:value="${feina}" th:text="${feina}" th:selected="${feina == empleat?.feina}">
+				</option>	
+				</select>
+				
+				<br> 
+				
+				
+			 	<!--  <label class="cloud-label">salari</label>
+			 	<input type="text" th:field="*{salari}">  --> 
+				
+				
+				 
+			</div>
+			
+  		
+  			<button type="submit" class="btn btn-outline-success">Guardar</button>
+			<a class="btn btn-outline-dark"   th:href="@{/UploadFoto}" role="button" method="post"	enctype="multipart/form-data">Foto</a></td> 
+			<a class="btn btn-outline-danger" th:href="@{/LlistaEmpleats}" role="button">Descartar</a>
+			
+ 
+
+		</form>
+
+	</div>
+
+</body>
+</html>

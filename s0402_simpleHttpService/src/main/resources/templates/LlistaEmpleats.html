@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <th:block th:include="Fragments/head :: head"></th:block>
+</head>
+
+<body>
+
+    <a>Accedir al Crud de Empleats - LlistaEmpleats</a>
+
+    <div class="container">
+        <div th:insert="Fragments/BodyHeader :: div"></div>
+
+
+
+        <!-- creem el botó per filtrar empelats 
+"th:object="${EmpleatFiltre}" = nom de la Classe que es relacionará amb una variable del Controller
+th:action="@{/FiltrarDelegaciones}" == @PostMapping("/FiltrarEmpleats")  
+-->
+        <form th:object="${EmpleatFiltre}" method="post" th:action="@{/FiltrarEmpleats}">
+             <div class="form-group">
+
+                <label>Nom</label> 
+                <input type="text" th:field="*{nom}">
+<!--
+-->
+                <button type="submit" class="btn btn-outline-dark">Cercar</button>
+
+
+            </div>
+         </form>
+
+
+
+
+
+        <div class="cloud-table-scroll">
+
+            <table class="table table-stripped ">
+                <thead>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>feina</th>
+                    <th>salari</th>
+                    <th colspan="5"></th>
+                </thead>
+                <tbody>
+                    <tr th:each="empleat: ${EmpleatsLlista}">
+                        <td th:text="${empleat.id}"></td>
+                        <td th:text="${empleat.nom}"></td>
+                        <td th:text="${empleat.feina}"></td>
+                        <td th:text="${empleat.salari}"></td>
+                        
+                        
+                        <!-- Posem un botó a cadar registre del Grid per Esborar / Editar el empelat --> 
+                        <td><a class="btn btn-outline-warning" 
+                        		th:href="@{/EditarEmpleat/__${empleat.id}__}"
+								role="button">Editar</a></td>
+							
+                        <td><a class="btn btn-outline-danger"
+							th:href="@{/BorrarEmpleat/__${empleat.id}__}"
+							role="button"
+							onclick="return confirm('Confirmi que vol eliminar-lo')">Esborrar</a></td>
+
+                            
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+        </div>
+
+		<br> <a class="btn btn-outline-primary" th:href="@{/NouEmpleat}"		role="Button">Nou</a>
+
+
+    </div>
+
+</body>
+
+</html>
