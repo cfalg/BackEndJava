@@ -167,24 +167,5 @@ public class Jugador {
 	}
 	
 	
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jugador other = (Jugador) obj;
-		if (nomJugador == null) {
-			if (other.nomJugador != null)
-				return false;
-		} else if (!nomJugador.equalsIgnoreCase(other.nomJugador))
-			return false;
-		return true;
-	}
-
 	
 }

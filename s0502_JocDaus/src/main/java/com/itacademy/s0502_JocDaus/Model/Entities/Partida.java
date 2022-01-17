@@ -113,32 +113,6 @@ public class Partida {
 				+ resultatTirada + ", partidaGuanyada=" + partidaGuanyada + ", dau1=" + dau1 + ", dau2=" + dau2 + "]";
 	}
 
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + id_partida;
-//		result = prime * result + ((fk_Jugador == null) ? 0 : fk_Jugador.hashCode());
-//		return result;
-//	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Partida other = (Partida) obj;
-		if (idPartida != other.idPartida)
-			return false;
-		if (jugador == null) {
-			if (other.jugador != null)
-				return false;
-		} else if (!jugador.equals(other.jugador))
-			return false;
-		return true;
-	}
 
 }
